@@ -1,51 +1,21 @@
 package com.example.demo.clean.application.usecases;
 
 import java.util.List;
-import com.example.demo.clean.application.gateways.ProdutoGateway;
-import com.example.demo.clean.domains.entities.Produto;
 
-/**
- * Serviço de Produto
- */
-public class ProdutoUseCase implements ProdutoIteractor {
-   
-    private final ProdutoGateway produtoPersistenceGateway;
+import com.example.demo.clean.entities.Produto;
 
-    /*
-     * Construtor
-     * Injeção de dependência do gateway de persistência de produtos
-     */
-    public ProdutoUseCase(ProdutoGateway produtoPersistenceGateway) {
-        this.produtoPersistenceGateway = produtoPersistenceGateway;
-    }    
+public interface ProdutoUseCase {
     
-    @Override
-    public List<Produto> getAllProdutos() {
-        return produtoPersistenceGateway.findAll();
-    }
+    public List<Produto> findAll();
 
-    @Override
-    public Produto getProdutoById(int id) {
-        return produtoPersistenceGateway.findById(id);
-    }
+    public Produto findById(Integer id);
 
-    @Override
-    public Produto saveProduto(Produto produto) {
-        return produtoPersistenceGateway.save(produto);
-    }
+    public Produto save(Produto produto);
 
-    @Override
-    public boolean deleteProduto(int id) {
-        return produtoPersistenceGateway.deleteById(id);
-    }
+    public boolean deleteById(Integer id);
 
-    @Override
-    public boolean deleteAllProdutos() {
-        return produtoPersistenceGateway.deleteAll();
-    }
+    public boolean deleteAll();
 
-    @Override
-    public Integer countProdutos() {
-        return produtoPersistenceGateway.count();
-    }
+    public Integer count();
+
 }

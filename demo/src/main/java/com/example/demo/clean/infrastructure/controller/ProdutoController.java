@@ -1,7 +1,7 @@
 package com.example.demo.clean.infrastructure.controller;
 
-import com.example.demo.clean.application.usecases.ProdutoIteractor;
-import com.example.demo.clean.domains.entities.Produto;
+import com.example.demo.clean.application.gateways.ProdutoGateway;
+import com.example.demo.clean.entities.Produto;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -9,39 +9,39 @@ import java.util.List;
 @RequestMapping("/v2/produto")
 public class ProdutoController {
 
-    private final ProdutoIteractor produtoIteractor;
+    private final ProdutoGateway produtoGateway;
 
-    public ProdutoController(ProdutoIteractor produtoIteractor) {
-        this.produtoIteractor = produtoIteractor;
+    public ProdutoController(ProdutoGateway produtoGateway) {
+        this.produtoGateway = produtoGateway;
     }
 
     @GetMapping({"/", ""})
     public List<Produto> findAllProducts() {
-        return this.produtoIteractor.getAllProdutos();
+        return this.produtoGateway.findAll();
     }
 
     @GetMapping("/{id}")
     public Produto findById(@PathVariable Integer id) {
-        return this.produtoIteractor.getProdutoById(id);
+        return this.produtoGateway.findById(id);
     }
 
     @PostMapping
     public Produto save(@RequestBody Produto produto) {
-        return this.produtoIteractor.saveProduto(produto);
+        return this.produtoGateway.save(produto);
     }
 
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable Integer id) {
-        return this.produtoIteractor.deleteProduto(id);
+        return this.produtoGateway.deleteById(id);
     }
 
     @DeleteMapping
     public boolean deleteAll() {
-        return this.produtoIteractor.deleteAllProdutos();
+        return this.produtoGateway.deleteAll();
     }
 
     @GetMapping("/count")
     public Integer count() {
-        return this.produtoIteractor.countProdutos();
+        return this.produtoGateway.count();
     }
 }

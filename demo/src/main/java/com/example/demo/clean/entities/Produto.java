@@ -1,26 +1,16 @@
-package com.example.demo.clean.infrastructure.persistence;
+package com.example.demo.clean.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "produto")
-public class ProdutoEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Produto {
     private Integer id;
     private String nome;
     private String descricao;
     private Integer quantidade;
     private Double preco;
 
-    public ProdutoEntity() {
+    public Produto() {
     }
 
-    public ProdutoEntity(Integer id, String nome, String descricao, Integer quantidade, Double preco) {
+    public Produto(Integer id, String nome, String descricao, Integer quantidade, Double preco) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
