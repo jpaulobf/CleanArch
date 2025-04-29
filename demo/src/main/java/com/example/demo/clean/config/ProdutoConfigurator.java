@@ -1,4 +1,4 @@
-package com.example.demo.clean.injection;
+package com.example.demo.clean.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
