@@ -1,0 +1,11 @@
+demo/target/classes/*
+demo/target/maven-archiver/*
+demo/target/test-classes/*
+data/demo.mv.db
+.vscode/*
+.idea/*
+*.class
+*.jar
+*.lst
+demo/target/surefire-reports/*
+demo/target/maven-archiver/*
